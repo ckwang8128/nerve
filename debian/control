@@ -12,7 +12,7 @@ XS-Ruby-Versions: all
 Package: nerve
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby, ruby-json, ruby-zk, ruby-bunny
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby, ruby-json, ruby-zk, ruby-bunny, ruby-dogstatsd
 Description: Service registration daemon that performs health checks
  Nerve is a utility for tracking the status of machines and services. It runs
  locally on the boxes which make up a distributed system, and reports state
