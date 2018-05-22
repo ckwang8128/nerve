@@ -1,7 +1,6 @@
 require 'nerve/service_watcher/tcp'
 require 'nerve/service_watcher/http'
 require 'nerve/service_watcher/rabbitmq'
-require 'nerve/service_watcher/redis'
 require 'nerve/service_watcher/shell'
 
 module Nerve
