@@ -11,13 +11,13 @@ arbitrary command.
  create mode 100644 lib/nerve/service_watcher/shell.rb
 
 diff --git a/lib/nerve/service_watcher.rb b/lib/nerve/service_watcher.rb
-index 40283cd..93520f2 100644
+index 96b69a7..0c63537 100644
 --- a/lib/nerve/service_watcher.rb
 +++ b/lib/nerve/service_watcher.rb
-@@ -1,6 +1,7 @@
- require 'nerve/service_watcher/tcp'
+@@ -2,6 +2,7 @@ require 'nerve/service_watcher/tcp'
  require 'nerve/service_watcher/http'
  require 'nerve/service_watcher/rabbitmq'
+ require 'nerve/service_watcher/redis'
 +require 'nerve/service_watcher/shell'
  
  module Nerve

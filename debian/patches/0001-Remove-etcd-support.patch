@@ -4,19 +4,19 @@ Subject: Remove etcd support
 
 This reduces an unnecessary dependency.
 ---
- lib/nerve/reporter/etcd.rb           | 73 ------------------------------------
+ lib/nerve/reporter/etcd.rb           | 77 ------------------------------------
  nerve.gemspec                        |  1 -
  spec/lib/nerve/reporter_etcd_spec.rb | 18 ---------
- 3 files changed, 92 deletions(-)
+ 3 files changed, 96 deletions(-)
  delete mode 100644 lib/nerve/reporter/etcd.rb
  delete mode 100644 spec/lib/nerve/reporter_etcd_spec.rb
 
 diff --git a/lib/nerve/reporter/etcd.rb b/lib/nerve/reporter/etcd.rb
 deleted file mode 100644
-index 1633dda..0000000
+index 971aebf..0000000
 --- a/lib/nerve/reporter/etcd.rb
 +++ /dev/null
-@@ -1,73 +0,0 @@
+@@ -1,77 +0,0 @@
 -require 'nerve/reporter/base'
 -require 'etcd'
 -
@@ -47,10 +47,14 @@ index 1633dda..0000000
 -
 -    def report_up()
 -      etcd_save
+-      # assume report up is successful if no error
+-      return true
 -    end
 -
 -    def report_down
 -      etcd_delete
+-      # assume report down is successful if no error
+-      return true
 -    end
 -
 -    def ping?
@@ -91,17 +95,17 @@ index 1633dda..0000000
 -end
 -
 diff --git a/nerve.gemspec b/nerve.gemspec
-index 6b9b045..eea827f 100644
+index 7e3d477..d202ce6 100644
 --- a/nerve.gemspec
 +++ b/nerve.gemspec
-@@ -24,7 +24,6 @@ Gem::Specification.new do |gem|
-   gem.add_runtime_dependency "json"
+@@ -25,7 +25,6 @@ Gem::Specification.new do |gem|
    gem.add_runtime_dependency "zk", "~> 1.9.2"
    gem.add_runtime_dependency "bunny", "= 1.1.0"
+   gem.add_runtime_dependency "redis", "= 3.3.5"
 -  gem.add_runtime_dependency "etcd", "~> 0.2.3"
+   gem.add_runtime_dependency "dogstatsd-ruby", "~> 3.3.0"
  
    gem.add_development_dependency "rake"
-   gem.add_development_dependency "rspec", "~> 3.1.0"
 diff --git a/spec/lib/nerve/reporter_etcd_spec.rb b/spec/lib/nerve/reporter_etcd_spec.rb
 deleted file mode 100644
 index c01d3dd..0000000
